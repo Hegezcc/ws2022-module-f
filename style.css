@@ -35,9 +35,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: normal;
 
-    /* Double color text and black shadow */
+    /* Double color text and triple black shadow for accessibility */
     color: var(--accent);
-    text-shadow: 0.5px 0.5px 0px var(--primary), 0 0 0.2rem var(--background);
+    text-shadow: 0.5px 0.5px 0px var(--primary), 
+                0 0 0.5rem var(--background), 
+                0 0 0.5rem var(--background), 
+                0 0 0.5rem var(--background);
 }
 
 h2 {
@@ -50,6 +53,21 @@ p {
 
 p + p {
     margin-top: 1rem;
+}
+
+a {
+    display: inline-block;
+    color: var(--citrine);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border-radius: 0.25rem;
+}
+
+a:hover {
+    color: var(--primary);
+    background-color: var(--citrine);
 }
 
 /* Main content styling */
@@ -113,6 +131,19 @@ section::before {
 
 #hero {
     background-image: url(images/aditya-chinchure.jpg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero p {
+    text-shadow: 0 0 0.5rem var(--background), 
+                0 0 0.5rem var(--background), 
+                0 0 0.5rem var(--background), 
+                0 0 0.5rem var(--background), 
+                0 0 0.5rem var(--background);
 }
 
 #promotion {
@@ -124,17 +155,83 @@ section::before {
 }
 
 #company-info {
-    background-image: url(images/sam-moghadam-khamseh-c.jpg);
+    background-image: url(images/mark-cruz.jpg);
+    text-align: center;
 }
 
-#roadmap {
-    background-image: url(images/mark-cruz.jpg);
+#company-info img {
+    width: 100%;
+    background-color: var(--ghost-white);
+    border: 0.5rem solid var(--accent);
+    border-radius: 2.25rem;
+    display: block;
+    margin: 1rem 0;
+    padding: 0;
+}
+
+/* Feature selector */
+
+.features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.features .selector {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.features .selector label {
+    flex: 1 1 0;
+    border-bottom: 1px solid var(--primary);
+}
+
+.features .area input {
+    display: none;
+}
+
+.features .area input:not(:checked) + .container {
+    display: none;
+}
+
+.features .area input:checked + .container {
+    display: block;
+}
+
+.features .feature .container {
+    background-color: var(--ghost-white);
+    border-radius: 2rem;
+    color: var(--smoky-black);
+}
+
+.features .feature .container img {
+    width: 100%;
+    border-radius: 5rem;
+    display: block;
+    margin: 1rem 0;
+    padding: 0;
+}
+
+.feature {
+    display: block;
+    color: var(--primary);
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: 200;
+}
+
+.feature:hover {
+    color: var(--primary);
+    background-color: transparent;
 }
 
 /* Desktop spesifics */
 
 @media screen and (min-width: 800px) {
-    
     h1 {
         font-size: 5rem;
     }
