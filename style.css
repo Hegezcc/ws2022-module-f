@@ -1,9 +1,12 @@
+/* Base rules */
+
 :root {
     /* Units */
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.5;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
+    --content-width: 40rem;
 
     /* Colors */
     --ghost-white: #f6f2f8ff;
@@ -18,14 +21,142 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     color: var(--primary);
     background-color: var(--background);
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: normal;
+
+    /* Double color text and black shadow */
     color: var(--accent);
-    text-shadow: 0 0 1px var(--primary);
+    text-shadow: 0.5px 0.5px 0px var(--primary), 0 0 0.2rem var(--background);
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    margin: 0;
+}
+
+p + p {
+    margin-top: 1rem;
+}
+
+/* Main content styling */
+
+main {
+    width: 100%;
+}
+
+section {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    box-shadow: 0 0 1rem 0 var(--background);
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-blend-mode: multiply;
+    background: linear-gradient(70deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+}
+
+.content {
+    position: relative;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.text-area {
+    position: relative;
+    margin-top: 2rem;
+    background-color: var(--smoky-black);
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 0.25rem 1rem 0 var(--primary);
+}
+
+.text-area::before {
+    content: "";
+    position: absolute;
+    top: -0.25rem;
+    left: -0.25rem;
+    right: -0.25rem;
+    bottom: -0.25rem;
+    border-radius: 2.5rem;
+    border: 0.5rem dashed var(--citrine);
+}
+
+.text-area > .inner {
+    position: relative;
+}
+
+/* Sections */
+
+#hero {
+    background-image: url(images/aditya-chinchure.jpg);
+}
+
+#promotion {
+    background-image: url(images/gr-stocks.jpg);
+}
+
+#features {
+    background-image: url(images/jonas-von-werne.jpg);
+}
+
+#company-info {
+    background-image: url(images/sam-moghadam-khamseh-c.jpg);
+}
+
+#roadmap {
+    background-image: url(images/mark-cruz.jpg);
+}
+
+/* Desktop spesifics */
+
+@media screen and (min-width: 800px) {
+    
+    h1 {
+        font-size: 5rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+        text-align: left;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    h5 {
+        font-size: 1.25rem;
+    }
+
+    h6 {
+        font-size: 1rem;
+    }
 }
