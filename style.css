@@ -43,6 +43,10 @@ h1, h2, h3, h4, h5, h6 {
                 0 0 0.5rem var(--background);
 }
 
+h1 {
+    font-size: 3rem;
+}
+
 h2 {
     text-align: center;
 }
@@ -138,7 +142,8 @@ section::before {
     justify-content: center;
 }
 
-#hero p {
+#hero .subtitle {
+    font-size: 1rem;
     text-shadow: 0 0 0.5rem var(--background), 
                 0 0 0.5rem var(--background), 
                 0 0 0.5rem var(--background), 
@@ -255,5 +260,9 @@ section::before {
 
     h6 {
         font-size: 1rem;
+    }
+
+    #hero .subtitle {
+        font-size: 1.5rem;
     }
 }
